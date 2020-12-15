@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aba906acdecc064685e88980cdbfbb0, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: 
+  characterClass: 0
+  animatorController: {fileID: 9100000, guid: 02457e8ded889004f98c87c33391175b, type: 2}
+  weaponTypes: 0000000003000000
+  visualPrefab: {fileID: 5337834868370124278, guid: 455c01179bbd33c48be89d4e231daad4,
+    type: 3}
+  baseAttributes:
+  - type: 0
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 1
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 2
+    value:
+      baseValue: 10
+      modifiedValue: 0
+  - type: 3
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  - type: 4
+    value:
+      baseValue: 0
+      modifiedValue: 0
+  defaultWeapon: {fileID: 11400000, guid: 8e84ac252f49c30478722ee35df5f3f4, type: 2}
+  ability1: {fileID: 11400000, guid: cea519ade6d2afc429dd6120922ccd93, type: 2}
+  ability2: {fileID: 11400000, guid: 47af65e26aa0d4c48a2b7e4036303dbf, type: 2}

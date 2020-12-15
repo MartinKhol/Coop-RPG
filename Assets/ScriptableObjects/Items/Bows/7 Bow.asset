@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd116b323bd24704391ce4f06868fa53, type: 3}
+  m_Name: 7 Bow
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: -6043588730961037491, guid: 928b3878e0db0bc4ea6ca05956617f26,
+    type: 3}
+  stackable: 0
+  type: 2
+  description: A bow used by town militiamen, better suited for combat.
+  price: 50
+  data:
+    Name: Wooden Bow
+    Id: 5
+    buffs:
+    - attribute: 3
+      value: 0
+      min: 3
+      max: 3
+    - attribute: 0
+      value: 0
+      min: 4
+      max: 4

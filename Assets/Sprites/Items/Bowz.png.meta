@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: 928b3878e0db0bc4ea6ca05956617f26
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8806813353569466291
+    second: Bowz_0
+  - first:
+      213: -3077240269011907507
+    second: Bowz_1
+  - first:
+      213: 4581411220133676618
+    second: Bowz_2
+  - first:
+      213: -1059677867185077664
+    second: Bowz_3
+  - first:
+      213: -5225927361528435266
+    second: Bowz_4
+  - first:
+      213: -343339078767187249
+    second: Bowz_5
+  - first:
+      213: -6043588730961037491
+    second: Bowz_6
+  - first:
+      213: 829415089874689734
+    second: Bowz_7
+  - first:
+      213: -2865577748297954936
+    second: Bowz_8
+  - first:
+      213: 8961621845099737388
+    second: Bowz_9
+  - first:
+      213: -1061008564771646974
+    second: Bowz_10
+  - first:
+      213: 1263524176403219009
+    second: Bowz_11
+  - first:
+      213: -4910638450177794503
+    second: Bowz_12
+  - first:
+      213: 5210726004287640470
+    second: Bowz_13
+  - first:
+      213: 6318836619753030157
+    second: Bowz_14
+  - first:
+      213: 7738619823416618033
+    second: Bowz_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bowz_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 10
+        width: 12
+        height: 12
+      alignment: 9
+      pivot: {x: 0.7872855, y: 0.22457068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4843595ae9e7c580800000000000000
+      internalID: -8806813353569466291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.7119761, y: 0.27934095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c840d77427b45d0800000000000000
+      internalID: -3077240269011907507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 9
+        width: 12
+        height: 12
+      alignment: 9
+      pivot: {x: 0.7046407, y: 0.3072152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a468e0a3b31749f30800000000000000
+      internalID: 4581411220133676618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 9
+        width: 12
+        height: 12
+      alignment: 9
+      pivot: {x: 0.6982832, y: 0.3072152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 062071e18944b41f0800000000000000
+      internalID: -1059677867185077664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.7237126, y: 0.29107746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd6a1ab0c6c977b0800000000000000
+      internalID: -5225927361528435266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.7178444, y: 0.27347273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca629c4de63c3bf0800000000000000
+      internalID: -343339078767187249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.7354484, y: 0.27347273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d47738ac11cd02ca0800000000000000
+      internalID: -6043588730961037491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.723712, y: 0.27347273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce545b31aca28b00800000000000000
+      internalID: 829415089874689734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.7295802, y: 0.27347273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889cf6c683c6b38d0800000000000000
+      internalID: -2865577748297954936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 8
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.6982829, y: 0.30085793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21fc8066931e5c70800000000000000
+      internalID: 8961621845099737388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 8
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.7033681, y: 0.29577217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2029321f45a8641f0800000000000000
+      internalID: -1061008564771646974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_11
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 9
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.72957903, y: 0.27347273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142c1a34b80f88110800000000000000
+      internalID: 1263524176403219009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 8
+        width: 14
+        height: 14
+      alignment: 9
+      pivot: {x: 0.680118, y: 0.32083803}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e17c4e858e9dbb0800000000000000
+      internalID: -4910638450177794503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 9
+        width: 14
+        height: 14
+      alignment: 9
+      pivot: {x: 0.75095695, y: 0.24999979}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693947b71b7305840800000000000000
+      internalID: 5210726004287640470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 9
+        width: 14
+        height: 14
+      alignment: 9
+      pivot: {x: 0.75095695, y: 0.26089796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d020c125d6401b750800000000000000
+      internalID: 6318836619753030157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bowz_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 8
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.6931966, y: 0.30594376}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c2b8a7ab9156b60800000000000000
+      internalID: 7738619823416618033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

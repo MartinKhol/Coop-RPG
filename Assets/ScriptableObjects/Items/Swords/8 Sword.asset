@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd116b323bd24704391ce4f06868fa53, type: 3}
+  m_Name: 8 Sword
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: -712151342897123870, guid: 84314ea3a6b14764d81b6d0fea85a67a,
+    type: 3}
+  stackable: 0
+  type: 0
+  description: Simple sword made of better materials.
+  price: 50
+  data:
+    Name: Steel Sword
+    Id: 13
+    buffs:
+    - attribute: 3
+      value: 0
+      min: 4
+      max: 4

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd116b323bd24704391ce4f06868fa53, type: 3}
+  m_Name: 15 Eye of Cthulhu 1
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: -3888259335016932868, guid: 72adeeda7556c5e4d9296b480b2e35fd,
+    type: 3}
+  stackable: 1
+  type: 4
+  description: Eye of a eyeless god.
+  price: 400
+  data:
+    Name: Eye of Cthulhu
+    Id: 90
+    buffs:
+    - attribute: 2
+      value: 0
+      min: 20
+      max: 35
+    - attribute: 3
+      value: 0
+      min: 10
+      max: 25
+    - attribute: 1
+      value: 0
+      min: 10
+      max: 25

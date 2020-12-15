@@ -1,0 +1,653 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c10999550b618b488158bfad59fb171, type: 3}
+  m_Name: Merchant Inventory
+  m_EditorClassIdentifier: 
+  savePath: /name.save
+  database: {fileID: 11400000, guid: f245e4bc1ec42e44885842a75e159db9, type: 2}
+  type: 2
+  Container:
+    Slots:
+    - AllowedItems: 
+      item:
+        Name: Grandmother's Ankh
+        Id: 6
+        buffs:
+        - attribute: 1
+          value: 2
+          min: 2
+          max: 2
+        - attribute: 0
+          value: -5
+          min: -5
+          max: -10
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Lost Ankh
+        Id: 12
+        buffs:
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 4
+        - attribute: 0
+          value: 3
+          min: -5
+          max: 5
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Shiny Ankh
+        Id: 19
+        buffs:
+        - attribute: 1
+          value: 4
+          min: 4
+          max: 5
+        - attribute: 2
+          value: 1
+          min: 1
+          max: 5
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Priests Ankh
+        Id: 24
+        buffs:
+        - attribute: 1
+          value: 5
+          min: 5
+          max: 7
+        - attribute: 2
+          value: 1
+          min: 1
+          max: 7
+        - attribute: 0
+          value: 3
+          min: 1
+          max: 7
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Wooden Bow
+        Id: 7
+        buffs:
+        - attribute: 3
+          value: 2
+          min: 2
+          max: 2
+        - attribute: 0
+          value: 3
+          min: 2
+          max: 4
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Engraved Wooden Bow
+        Id: 14
+        buffs:
+        - attribute: 3
+          value: 3
+          min: 3
+          max: 3
+        - attribute: 0
+          value: 5
+          min: 3
+          max: 6
+        - attribute: 2
+          value: 1
+          min: 1
+          max: 2
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Spiked Wooden Bow
+        Id: 21
+        buffs:
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 5
+        - attribute: 0
+          value: 5
+          min: 4
+          max: 8
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Orc Bow
+        Id: 25
+        buffs:
+        - attribute: 3
+          value: 5
+          min: 5
+          max: 6
+        - attribute: 0
+          value: 5
+          min: 4
+          max: 8
+        - attribute: 2
+          value: 4
+          min: 4
+          max: 8
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Iron Dagger
+        Id: 8
+        buffs:
+        - attribute: 3
+          value: 2
+          min: 2
+          max: 2
+        - attribute: 0
+          value: 5
+          min: 5
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Steel Dagger
+        Id: 15
+        buffs:
+        - attribute: 3
+          value: 3
+          min: 3
+          max: 3
+        - attribute: 0
+          value: 6
+          min: 6
+          max: 8
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Adamantite Dagger
+        Id: 22
+        buffs:
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 4
+        - attribute: 0
+          value: 6
+          min: 6
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Better Adamantite Dagger
+        Id: 26
+        buffs:
+        - attribute: 3
+          value: 5
+          min: 5
+          max: 6
+        - attribute: 0
+          value: 6
+          min: 6
+          max: 6
+        - attribute: 2
+          value: 1
+          min: 1
+          max: 5
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Minor Ice Staff
+        Id: 10
+        buffs:
+        - attribute: 1
+          value: 2
+          min: 2
+          max: 2
+        - attribute: 2
+          value: 0
+          min: 0
+          max: 1
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Lesser Ice Staff
+        Id: 16
+        buffs:
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 3
+        - attribute: 0
+          value: 2
+          min: 2
+          max: 3
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Normal Ice Staff
+        Id: 18
+        buffs:
+        - attribute: 1
+          value: 4
+          min: 4
+          max: 4
+        - attribute: 2
+          value: 5
+          min: 2
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Greater Ice Staff
+        Id: 29
+        buffs:
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 3
+        - attribute: 0
+          value: 6
+          min: 3
+          max: 10
+        - attribute: 2
+          value: 2
+          min: 2
+          max: 5
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Iron Sword
+        Id: 11
+        buffs:
+        - attribute: 3
+          value: 3
+          min: 3
+          max: 3
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Steel Sword
+        Id: 17
+        buffs:
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 4
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Polished Steel Sword
+        Id: 23
+        buffs:
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 4
+        - attribute: 0
+          value: 5
+          min: 5
+          max: 15
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Curved Saber
+        Id: 28
+        buffs:
+        - attribute: 3
+          value: 4
+          min: 4
+          max: 6
+        - attribute: 0
+          value: 16
+          min: 10
+          max: 25
+        - attribute: 2
+          value: 5
+          min: 5
+          max: 10
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Sturdy Ring
+        Id: 4
+        buffs:
+        - attribute: 2
+          value: 4
+          min: 3
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Diamond Ring
+        Id: 9
+        buffs:
+        - attribute: 1
+          value: 1
+          min: 1
+          max: 2
+        - attribute: 2
+          value: 3
+          min: 3
+          max: 5
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Book of Clever Jokes
+        Id: 13
+        buffs:
+        - attribute: 3
+          value: 1
+          min: 0
+          max: 2
+        - attribute: 1
+          value: 0
+          min: 0
+          max: 2
+        - attribute: 0
+          value: 9
+          min: 0
+          max: 10
+        - attribute: 2
+          value: 1
+          min: 0
+          max: 10
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Book of KIL
+        Id: 20
+        buffs:
+        - attribute: 1
+          value: 3
+          min: 1
+          max: 5
+        - attribute: 0
+          value: 7
+          min: 0
+          max: 8
+        - attribute: 2
+          value: 7
+          min: 5
+          max: 15
+        - attribute: 2
+          value: 9
+          min: 5
+          max: 15
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Orb of Clarity
+        Id: 27
+        buffs:
+        - attribute: 1
+          value: 7
+          min: 3
+          max: 10
+        - attribute: 3
+          value: 5
+          min: 2
+          max: 8
+        - attribute: 2
+          value: 13
+          min: 5
+          max: 15
+        - attribute: 0
+          value: 14
+          min: 0
+          max: 20
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Pendant of Health
+        Id: 33
+        buffs:
+        - attribute: 2
+          value: 13
+          min: 5
+          max: 15
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Dwarf Pendant
+        Id: 39
+        buffs:
+        - attribute: 2
+          value: 4
+          min: 4
+          max: 9
+        - attribute: 3
+          value: 4
+          min: 3
+          max: 6
+        - attribute: 1
+          value: 5
+          min: 3
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Mandragora Root
+        Id: 45
+        buffs:
+        - attribute: 2
+          value: 7
+          min: 4
+          max: 9
+        - attribute: 4
+          value: 5
+          min: 3
+          max: 6
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Red Gem
+        Id: 51
+        buffs:
+        - attribute: 2
+          value: 12
+          min: 5
+          max: 20
+        - attribute: 0
+          value: 11
+          min: 10
+          max: 20
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Spider web
+        Id: 57
+        buffs:
+        - attribute: 0
+          value: -6
+          min: -5
+          max: -7
+        - attribute: 3
+          value: 2
+          min: 2
+          max: 4
+        - attribute: 1
+          value: 3
+          min: 2
+          max: 4
+        - attribute: 2
+          value: 2
+          min: 2
+          max: 4
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Rat Tail
+        Id: 63
+        buffs:
+        - attribute: 2
+          value: 1
+          min: 1
+          max: 2
+        - attribute: 3
+          value: 1
+          min: 1
+          max: 2
+        - attribute: 1
+          value: 1
+          min: 1
+          max: 2
+        - attribute: 0
+          value: -2
+          min: -2
+          max: -8
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Firefly
+        Id: 69
+        buffs:
+        - attribute: 2
+          value: 4
+          min: 4
+          max: 9
+        - attribute: 3
+          value: 3
+          min: 3
+          max: 6
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 6
+        - attribute: 0
+          value: 49
+          min: 30
+          max: 80
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Orc Tooth
+        Id: 75
+        buffs:
+        - attribute: 2
+          value: 7
+          min: 4
+          max: 9
+        - attribute: 4
+          value: 3
+          min: 2
+          max: 4
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Frog leg
+        Id: 81
+        buffs:
+        - attribute: 2
+          value: 7
+          min: 3
+          max: 8
+        - attribute: 0
+          value: 6
+          min: 5
+          max: 7
+        - attribute: 4
+          value: 1
+          min: 1
+          max: 2
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Rabbit foot
+        Id: 87
+        buffs:
+        - attribute: 2
+          value: 8
+          min: 4
+          max: 9
+        - attribute: 3
+          value: 5
+          min: 3
+          max: 6
+        - attribute: 1
+          value: 3
+          min: 3
+          max: 6
+        - attribute: 4
+          value: 3
+          min: 3
+          max: 4
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: Eye of Cthulhu
+        Id: 93
+        buffs:
+        - attribute: 2
+          value: 20
+          min: 20
+          max: 35
+        - attribute: 3
+          value: 20
+          min: 10
+          max: 25
+        - attribute: 1
+          value: 22
+          min: 10
+          max: 25
+      amount: 1
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0

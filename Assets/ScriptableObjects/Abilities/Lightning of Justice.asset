@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17552f6ae637f54ba3bfde4bfe4880f, type: 3}
+  m_Name: Lightning of Justice
+  m_EditorClassIdentifier: 
+  effectorPrefab: {fileID: 3816348948308538792, guid: be080aeb29070864ead2fa449a13b3f5,
+    type: 3}
+  uiDisplay: {fileID: -3785442492447779331, guid: 03401b2e4399f7f4485a9e406f1b0221,
+    type: 3}
+  onMouse: 1
+  channeled: 0
+  friendly: 0
+  faceMouse: 0
+  repeatable: 0
+  maxTargets: 1
+  damageStat: 1
+  baseDamage: 0
+  damageMult: 1
+  duration: 3
+  cooldown: 3
+  startDelay: 0
+  tickEvery: 1
+  radius: 1
+  effects:
+  - type: 1
+    duration: 3
+    value: 0

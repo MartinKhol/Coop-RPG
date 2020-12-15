@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd116b323bd24704391ce4f06868fa53, type: 3}
+  m_Name: 16 Staff
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: -1840188025696905147, guid: cfbe7c7ebcdb38a4886ce8ddf7b146d4,
+    type: 3}
+  stackable: 0
+  type: 1
+  description: When mages finish their training, they get this adequate staff.
+  price: 50
+  data:
+    Name: Ice Staff
+    Id: 6
+    buffs:
+    - attribute: 1
+      value: 0
+      min: 3
+      max: 3
