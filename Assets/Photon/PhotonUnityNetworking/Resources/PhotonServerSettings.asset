@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: e5a4e443-9749-48fd-b4f1-1798d0c6915a
+    AppIdRealtime: 
     AppIdChat: 
     AppIdVoice: 
-    AppVersion: 1
+    AppVersion: 
     UseNameServer: 1
     FixedRegion: 
     Server: 
@@ -25,36 +25,29 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: eu
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
-  - ClickRpc
-  - DestroyRpc
-  - DestroySpaceship
-  - Fire
-  - RespawnSpaceship
-  - SetAttackAnimatorTrigger
-  - SetDamageAnimatorTrigger
   - ChangeHealth
-  - DestroyMe
+  - ChangeMaxHPRPC
+  - ClickRpc
+  - CreateItemDrop
+  - DestroyRpc
+  - DropCoins
+  - ParryAnimation
   - PlayerNotReady
   - PlayerReady
-  - Looted
   - Revive
-  - SpawnBowProjectile
-  - SpawnStaffProjectile
+  - SetAttackAnimatorTrigger
   - SetWeapon
-  - SpawnEffect
   - SpawnAnkhProjectile
+  - SpawnBowProjectile
+  - SpawnEffect
   - SpawnProjectile
-  - ParryAnimation
-  - DropCoins
-  - SpawnDrop
-  - CreateItemDrop
-  - ChangeMaxHPRPC
+  - SpawnStaffProjectile
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
-  DevRegionSetOnce: 1
+  ShowSettings: 0
+  DevRegionSetOnce: 0
