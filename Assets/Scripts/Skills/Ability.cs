@@ -22,7 +22,6 @@ public class Ability : ScriptableObject
     public bool repeatable = true;
     public int maxTargets = 999;
     public Attributes damageStat = Attributes.PhysicalDamage;
-    [Tooltip("isn't affected by damageStat if this is 0")]
     public int baseDamage = 0;
     public float damageMult = 1f;
     public float duration = 10f;

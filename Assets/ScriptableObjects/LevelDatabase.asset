@@ -9,21 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce21ddd8c8379e458f64365b6dad179, type: 3}
-  m_Name: Wave2
+  m_Script: {fileID: 11500000, guid: fccefd15682a7dc4eaaa7d554f55bd5e, type: 3}
+  m_Name: LevelDatabase
   m_EditorClassIdentifier: 
-  groups:
-  - mob:
-    - OrcAxe
-    - OrcClub
-    - OrcClub
-    count: 2
-    delay: 15
-  - mob:
-    - OrcAxe
-    - OrcAxe
-    - OrcBow
-    - Wombat
-    - Wombat
-    count: 1
-    delay: 5
+  levels:
+  - {fileID: 11400000, guid: 2bc2a63504310b0448155e9f85af5b98, type: 2}
+  - {fileID: 11400000, guid: 5f6ce4263b919554a8e8bd3885153676, type: 2}

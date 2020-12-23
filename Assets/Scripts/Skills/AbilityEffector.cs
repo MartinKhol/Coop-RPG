@@ -13,7 +13,7 @@ public class AbilityEffector : MonoBehaviour
 
     public virtual void StartSkill(int damageMod)
     {
-        if (ability.baseDamage != 0)
+        if (ability.damageMult != 0)
             damage = ability.baseDamage + damageMod;
 
         Invoke("DealDamage", ability.startDelay);

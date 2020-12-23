@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ce21ddd8c8379e458f64365b6dad179, type: 3}
-  m_Name: Wave3
+  m_Name: Level 2
   m_EditorClassIdentifier: 
-  groups:
-  - mob:
-    - OrcAxe
-    - OrcAxe
-    - OrcAxe
-    - OrcBow
-    - OrcBow
-    count: 1
-    delay: 20
-  - mob:
-    - OrcAxe
-    - OrcBow
-    - OrcBow
-    count: 2
-    delay: 10
+  SceneName: Forest
+  waves:
+  - mobs:
+    - mob: OrcAxe
+      count: 2
+    - mob: OrcBow
+      count: 2
+    delay: 15
+  - mobs:
+    - mob: OrcAxe
+      count: 3
+    - mob: OrcClub
+      count: 2
+    delay: 0

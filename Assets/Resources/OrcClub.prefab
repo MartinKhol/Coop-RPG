@@ -592,6 +592,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
+  observableSearch: 0
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
@@ -614,6 +615,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 1
+  m_UseLocal: 0
 --- !u!114 &1881084911413718441
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class HealthPoints : MonoBehaviourPun
                 DamageAnimation();
             }
 
-            Debug.Log(string.Concat(name, " health points at: ", healthPoints));
+         //   Debug.Log(string.Concat(name, " health points at: ", healthPoints));
 
         }
     }
@@ -72,7 +72,8 @@ public class HealthPoints : MonoBehaviourPun
 
     private void DamageAnimation()
     {
-        animator.SetTrigger(damageTrig);
+        if (animator.runtimeAnimatorController != null)
+            animator.SetTrigger(damageTrig);
     }
 
     public void Damage(int amount, Transform playerID = null, int additionalThreat = 0)
@@ -103,7 +104,7 @@ public class HealthPoints : MonoBehaviourPun
         else
         if (HP > maxHP) HP = maxHP;
 
-        Debug.Log(name + " maxHp set to " + maxHP);
+       // Debug.Log(name + " maxHp set to " + maxHP);
     }
 
     [PunRPC]

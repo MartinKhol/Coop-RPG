@@ -47,7 +47,7 @@ namespace Launcher
             {
                 LoadInventories();
 
-                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+                Debug.LogFormat("Instantiating Local Player from scene {0}", SceneManagerHelper.ActiveSceneName);
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
                 object[] data = new object[1];
                 data[0] = CharacterSelect.selectedClass;
@@ -81,7 +81,7 @@ namespace Launcher
                 inventory.Clear();
             }
             Destroy(PlayerManager.localPlayer.gameObject);
-            Debug.Log("left room");
+            Debug.Log("eft room");
             PhotonNetwork.Disconnect();
             PhotonNetwork.LoadLevel(0);
         }

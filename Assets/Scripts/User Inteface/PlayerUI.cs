@@ -39,7 +39,6 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-
     }
 
     void Start()

@@ -7,11 +7,12 @@ using Unity.Collections;
 using UnityEngine.UI;
 using Photon.Realtime;
 using Launcher;
+using UnityEngine.Video;
 
 public class ReadyForNextScene : MonoBehaviourPunCallbacks
 {
     public KeyCode readinessKey = KeyCode.R;
-    public string nextSceneName;
+    public LevelDatabase levelDatabase;
     public Text readinessText;
     private bool myReadiness = false;
     private int totalPlayersReady = 0;
@@ -53,8 +54,10 @@ public class ReadyForNextScene : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                Debug.LogFormat("Switching to next scene: {0}", nextSceneName);
-                PhotonNetwork.LoadLevel(nextSceneName);
+                var level = levelDatabase.GetLevel(PlayerManager.localPlayer.currentLevel);
+
+                Debug.LogFormat("Switching to next scene: {0}", level.SceneName);
+                PhotonNetwork.LoadLevel(level.SceneName);
             }
         }
     }

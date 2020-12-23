@@ -118,7 +118,7 @@ namespace Launcher
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
-            Debug.Log("Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+            Debug.Log("Launcher: Creating a new room");
 
             // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
             PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
@@ -126,11 +126,8 @@ namespace Launcher
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
             if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
-                Debug.Log("You are the first player in this room.");
-
                 // #Critical
                 // Load the Room Level.
                 PhotonNetwork.LoadLevel("Tavern");

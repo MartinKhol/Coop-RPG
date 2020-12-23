@@ -6,44 +6,51 @@ using System;
 
 public class MonsterSpawner : MonoBehaviour
 {    
-    public Wave[] waves; 
+    public LevelDatabase levels; 
 
-    public static int currentWave = 0;
+    int levelID = 0;
 
-    Transform leftBorder;
-    Transform rightBorder;
+    Transform bottomleftBorder;
+    Transform toprightBorder;
     private const string tavernSceneName = "Tavern";
 
     void Start()
     {
-        leftBorder = transform.GetChild(0);
-        rightBorder = transform.GetChild(1);
+        bottomleftBorder = transform.GetChild(0);
+        toprightBorder = transform.GetChild(1);
+        
+        //spawnuje vlny jen pokud je master
         if (PhotonNetwork.IsMasterClient)
+        {
+            levelID = PlayerManager.localPlayer.currentLevel;
             StartCoroutine(SpawnCoroutine());
+        }
     }
 
     IEnumerator SpawnCoroutine()
     {
         yield return new WaitForSeconds(Settings.levelStartDelay);
 
-        if (currentWave >= waves.Length) currentWave = 0;
+        Level currentLevel = levels.GetLevel(levelID);
 
-        foreach (var group in waves[currentWave].groups)
+        foreach (var wave in currentLevel.waves)
         {
-            for (int i = 0; i < group.count; i++)
+            for (int i = 0; i < wave.mobs.Length; i++)
             {
-                for (int k = 0; k < group.mob.Length; k++)
+                for (int k = 0; k < wave.mobs[i].count; k++)
                 {
-                    PhotonNetwork.Instantiate(group.mob[k], GetRandomPosition(), Quaternion.identity);
+                    PhotonNetwork.Instantiate(wave.mobs[i].mob, GetRandomPosition(), Quaternion.identity);
                 }
-                yield return new WaitForSeconds(group.delay);
             }
-
+            yield return new WaitForSeconds(wave.delay);
         }
 
         yield return new WaitUntil(() => EnemyMovement.enemyCount < 1);
         yield return new WaitForSeconds(Settings.levelStartDelay);
-        currentWave++;
+
+        //player finished the level
+        PlayerManager.localPlayer.currentLevel++;
+
         ReturnToTavern();
     }
 
@@ -57,8 +64,9 @@ public class MonsterSpawner : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        Vector3 pos = leftBorder.position;
-        pos.x = UnityEngine.Random.Range(pos.x, rightBorder.position.x);
+        Vector3 pos = bottomleftBorder.position;
+        pos.x = UnityEngine.Random.Range(pos.x, toprightBorder.position.x);
+        pos.y = UnityEngine.Random.Range(pos.y, toprightBorder.position.y);
         return pos;
     }
 }

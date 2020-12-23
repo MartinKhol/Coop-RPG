@@ -17,11 +17,12 @@ public class PlayerManager : MonoBehaviourPun
 
     [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
     public static PlayerManager localPlayer;
+    public int currentLevel = 0;
     [HideInInspector]
     public HealthPoints HealthPoints;
 
     private Animator animator;
-    public RuntimeAnimatorController tempAnimator;
+   // public RuntimeAnimatorController tempAnimator;
 
     private void Awake()
     {
@@ -52,14 +53,15 @@ public class PlayerManager : MonoBehaviourPun
 
     private void Start()
     {
-        animator.runtimeAnimatorController = tempAnimator;
-        Invoke("StartAnimator", 0.1f);
+        //       animator.runtimeAnimatorController = tempAnimator;
+        gameObject.SetActive(false);
+        Invoke("SetAnimator", 0.05f);
     }
 
-    private void StartAnimator()
+    private void SetAnimator()
     {
-        animator.enabled = true;
         animator.runtimeAnimatorController = animatorController;
+        gameObject.SetActive(true);
     }
 
     private void InitAtributes()
@@ -123,6 +125,12 @@ public class PlayerManager : MonoBehaviourPun
                 classObject = GameManager.Instance.PriestObject;
                 break;
         }
+
+        //delete placeholder visual in the prefab
+        var placeholder = transform.Find("Sprite");
+        Destroy(placeholder.gameObject);
+
+
         var sprite = Instantiate(classObject.visualPrefab, transform.position + new Vector3(0f, -0.3f, 0f), Quaternion.identity, transform);
         sprite.name = "Sprite";
 

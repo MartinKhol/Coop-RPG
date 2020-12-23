@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tavern.unity
     guid: 8e602f89d1bd4b94e8db377126c230a7
   - enabled: 1
-    path: Assets/Scenes/GameWorld.unity
+    path: Assets/Scenes/Forest.unity
     guid: 216e5a8114d46e84e88815587b9d0742
+  - enabled: 1
+    path: Assets/Scenes/Purple Forest.unity
+    guid: 61e77c493d0f7204d85c5afb93206338
   m_configObjects: {}
