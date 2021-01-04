@@ -22,7 +22,7 @@ public class MonsterSpawner : MonoBehaviour
         //spawnuje vlny jen pokud je master
         if (PhotonNetwork.IsMasterClient)
         {
-            levelID = PlayerManager.LocalPlayer.CurrentLevel;
+            levelID = PlayerManager.localPlayer.currentLevel;
             StartCoroutine(SpawnCoroutine());
         }
     }
@@ -49,7 +49,7 @@ public class MonsterSpawner : MonoBehaviour
         yield return new WaitForSeconds(Settings.levelStartDelay);
 
         //player finished the level
-        PlayerManager.LocalPlayer.CurrentLevel++;
+        PlayerManager.localPlayer.currentLevel++;
 
         ReturnToTavern();
     }

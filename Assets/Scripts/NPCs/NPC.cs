@@ -46,7 +46,7 @@ public abstract class NPC : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (PlayerManager.LocalPlayer.gameObject == collision.gameObject)
+        if (PlayerManager.localPlayer.gameObject == collision.gameObject)
         {
             interactable = true;
             interactionText.SetActive(true);
@@ -55,7 +55,7 @@ public abstract class NPC : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (PlayerManager.LocalPlayer.gameObject == collision.gameObject)
+        if (PlayerManager.localPlayer.gameObject == collision.gameObject)
         {
             interactable = false;
             interactionText.SetActive(false);

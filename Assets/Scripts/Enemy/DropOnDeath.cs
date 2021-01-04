@@ -39,7 +39,7 @@ public class DropOnDeath : MonoBehaviourPun
             int rndVal = UnityEngine.Random.Range(1, 100);
             if (item.dropChance >= rndVal)
             {
-                PlayerManager.LocalPlayer.CallDropRPC(item.item.data.Id, transform.position);
+                PlayerManager.localPlayer.CallDropRPC(item.item.data.Id, transform.position);
                 /*
                 var obj = Instantiate(dropPrefab, transform.position, Quaternion.identity);
                 var droppedItem = obj.GetComponent<DroppedItem>();
@@ -55,7 +55,7 @@ public class DropOnDeath : MonoBehaviourPun
     [PunRPC]
     private void DropCoins(int amount)
     {
-        PlayerManager.LocalPlayer.Wallet.AddCoins(amount);
+        PlayerManager.localPlayer.wallet.AddCoins(amount);
         print(string.Concat(name, " dropped ", amount, " coins"));
     }
 }

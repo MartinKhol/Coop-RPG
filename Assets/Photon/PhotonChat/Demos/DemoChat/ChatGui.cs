@@ -131,7 +131,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
         this.chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings.GetChatSettings();
         #endif
 
-        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppIdChat);
+        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppId);
 
 	    this.missingAppIdErrorPanel.SetActive(!appIdPresent);
 		this.UserIdFormPanel.gameObject.SetActive(appIdPresent);

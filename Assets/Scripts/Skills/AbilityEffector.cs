@@ -7,55 +7,60 @@ using UnityEngine.AI;
 public class AbilityEffector : MonoBehaviour
 {
     [HideInInspector]
-    public Ability Ability;
+    public Ability ability;
 
-    private int damage;
+    int damage;
 
     public virtual void StartSkill(int damageMod)
     {
-        if (Ability.damageMult != 0)
-            damage = Ability.baseDamage + damageMod;
+        if (ability.damageMult != 0)
+            damage = ability.baseDamage + damageMod;
 
-        Invoke("DealDamage", Ability.startDelay);
+        Invoke("DealDamage", ability.startDelay);
 
-        if (Ability.repeatable)
-            InvokeRepeating("DealDamage", Ability.startDelay + Ability.tickEvery, Ability.tickEvery);
+        if (ability.repeatable)
+            InvokeRepeating("DealDamage", ability.startDelay + ability.tickEvery, ability.tickEvery);
 
-        Destroy(gameObject, Ability.duration);
+        Destroy(gameObject, ability.duration);
     }
 
     void DealDamage()
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, Ability.radius);
-        int targetCount = Mathf.Min(Ability.maxTargets, collider2Ds.Length);
+        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, ability.radius);
+        int targetCount = Mathf.Min(ability.maxTargets, collider2Ds.Length);
         for (int i = 0; i < targetCount; i++)
         {
             Collider2D collider = collider2Ds[i];
-            if (Ability.friendly && collider.CompareTag("Player"))
+            if (ability.friendly && collider.CompareTag("Player"))
             {
+                Debug.Log("spell targeted player " + collider.name);
+
                 var hp = collider.GetComponent<HealthPoints>();
                 hp.Damage(-damage);
+                Debug.Log("healed " + damage);
 
                 var target = collider.GetComponent<StatusEffects>();
                 if (target != null)
                 {
-                    foreach (var effect in Ability.effects)
+                    Debug.Log("buffing " + collider.name);
+
+                    foreach (var effect in ability.effects)
                     {
                         var tempEfect = new Effect(effect);
                         tempEfect.Apply(target);
                     }
                 }
             }
-            else if (!Ability.friendly && !collider.CompareTag("Player"))
+            else if (!ability.friendly && !collider.CompareTag("Player"))
             {
                 var hp = collider.GetComponent<HealthPoints>();
                 if (hp != null)
-                    hp.Damage(damage, PlayerManager.LocalPlayer.gameObject.transform);
+                    hp.Damage(damage, PlayerManager.localPlayer.gameObject.transform);
 
                 var target = collider.GetComponent<StatusEffects>();
                 if (target != null)
                 {
-                    foreach (var effect in Ability.effects)
+                    foreach (var effect in ability.effects)
                     {
                         var tempEfect = new Effect(effect);
                         tempEfect.Apply(target);
@@ -67,9 +72,9 @@ public class AbilityEffector : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Ability.channeled)
+        if (ability.channeled)
         {
-            Ability.AbilityInUse = false;
+            Ability.abilityInUse = false;
         }
     }
 }

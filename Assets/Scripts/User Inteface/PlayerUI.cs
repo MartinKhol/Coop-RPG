@@ -44,7 +44,7 @@ public class PlayerUI : MonoBehaviour
     void Start()
     {
         text.text = PhotonNetwork.NickName;
-        classText.text = CharacterSelect.SelectedClass.ToString();
+        classText.text = CharacterSelect.selectedClass.ToString();
 
         if (Settings.displayPing)
         {
@@ -52,8 +52,8 @@ public class PlayerUI : MonoBehaviour
                 InvokeRepeating("DisplayPing", 1f, 1f);
         }
 
-        if (PlayerManager.LocalPlayer != null)
-            foreach (var attribute in PlayerManager.LocalPlayer.Attributes)
+        if (PlayerManager.localPlayer != null)
+            foreach (var attribute in PlayerManager.localPlayer.attributes)
             {
                 AttribureModified(attribute);
             }
@@ -66,17 +66,17 @@ public class PlayerUI : MonoBehaviour
 
     IEnumerator WaitForPlayerSpawn()
     {
-        yield return new WaitUntil(() => PlayerManager.LocalPlayer != null);
-        PlayerManager.LocalPlayer.Wallet.OnValueChanged += UpdateMoneyDisplay;
+        yield return new WaitUntil(() => PlayerManager.localPlayer != null);
+        PlayerManager.localPlayer.wallet.OnValueChanged += UpdateMoneyDisplay;
 
-        UpdateMoneyDisplay(PlayerManager.LocalPlayer.Wallet.Coins);
+        UpdateMoneyDisplay(PlayerManager.localPlayer.wallet.Coins);
         
     }
 
     private void OnDestroy()
     {
-        if (PlayerManager.LocalPlayer != null)
-            PlayerManager.LocalPlayer.Wallet.OnValueChanged -= UpdateMoneyDisplay;
+        if (PlayerManager.localPlayer != null)
+            PlayerManager.localPlayer.wallet.OnValueChanged -= UpdateMoneyDisplay;
     }
 
     private void Update()

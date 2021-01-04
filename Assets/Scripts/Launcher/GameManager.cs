@@ -43,21 +43,21 @@ namespace Launcher
 
         private void Start()
         {
-            if (PlayerManager.LocalPlayer == null)
+            if (PlayerManager.localPlayer == null)
             {
                 LoadInventories();
 
                 Debug.LogFormat("Instantiating Local Player from scene {0}", SceneManagerHelper.ActiveSceneName);
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
                 object[] data = new object[1];
-                data[0] = CharacterSelect.SelectedClass;
+                data[0] = CharacterSelect.selectedClass;
                 PhotonNetwork.Instantiate(playerPrefab, spawnPosition, Quaternion.identity,0 ,data);
             }
             else
             {
-                //revive dead player and restore hp to max
-                PlayerManager.LocalPlayer.HealthPoints.ReviveRpc();
-                PlayerManager.LocalPlayer.transform.position = spawnPosition;
+                //revive dead player
+                PlayerManager.localPlayer.HealthPoints.ReviveRpc();
+                PlayerManager.localPlayer.transform.position = spawnPosition;
                 Debug.LogFormat("Carried player object over to scene {0}", SceneManagerHelper.ActiveSceneName);
             }
         }
@@ -80,8 +80,8 @@ namespace Launcher
             {
                 inventory.Clear();
             }
-            Destroy(PlayerManager.LocalPlayer.gameObject);
-            Debug.Log("Left room");
+            Destroy(PlayerManager.localPlayer.gameObject);
+            Debug.Log("eft room");
             PhotonNetwork.Disconnect();
             PhotonNetwork.LoadLevel(0);
         }
@@ -102,7 +102,7 @@ namespace Launcher
 
         public void SaveInventories()
         {
-            string saveName = CharacterSelect.SelectedClass.ToString();
+            string saveName = CharacterSelect.selectedClass.ToString();
 
             for (int i = 0; i < inventories.Length; i++)
             {
@@ -110,12 +110,12 @@ namespace Launcher
                 inventories[i].Save();
             }
 
-            PlayerManager.LocalPlayer.Wallet.Save();
+            PlayerManager.localPlayer.wallet.Save();
         }
 
         public void LoadInventories()
         {
-            string saveName = CharacterSelect.SelectedClass.ToString();
+            string saveName = CharacterSelect.selectedClass.ToString();
 
             for( int i = 0; i < inventories.Length; i++)
             {

@@ -17,8 +17,8 @@ public class HealthBar : MonoBehaviour
 
     IEnumerator SetUp()
     {
-        yield return new WaitUntil(() => PlayerManager.LocalPlayer);
-        healthPoints = PlayerManager.LocalPlayer.GetComponent<HealthPoints>();
+        yield return new WaitUntil(() => PlayerManager.localPlayer);
+        healthPoints = PlayerManager.localPlayer.GetComponent<HealthPoints>();
 
         healthPoints.OnHPChange += ChangeValue;
     }

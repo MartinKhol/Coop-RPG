@@ -90,7 +90,7 @@ namespace Inventory
             {
                 var item = slotsOnInterface[obj].item;
 
-                PlayerManager.LocalPlayer.CallDropRPC(item.Id, PlayerManager.LocalPlayer.transform.position + (Vector3)dropOffset * PlayerManager.LocalPlayer.transform.localScale.x, item);
+                PlayerManager.localPlayer.CallDropRPC(item.Id, PlayerManager.localPlayer.transform.position + (Vector3)dropOffset * PlayerManager.localPlayer.transform.localScale.x, item);
                 slotsOnInterface[obj].RemoveItem();
                 return;
             }

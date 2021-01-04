@@ -14,41 +14,41 @@ public enum CharacterClass
 
 public class CharacterSelect : MonoBehaviour
 {
-    public Toggle WarriorToggle;
-    public Toggle WizardToggle;
-    public Toggle AlchemystToggle;
-    public Toggle HunterToggle;
-    public Toggle PriestToggle;
+    public Toggle warriorToggle;
+    public Toggle wizardToggle;
+    public Toggle alchemystToggle;
+    public Toggle hunterToggle;
+    public Toggle priestToggle;
 
-    public static CharacterClass SelectedClass = CharacterClass.Warrior;
+    public static CharacterClass selectedClass = CharacterClass.Warrior;
 
-    const string PrefsKey = "selectedClass";
+    const string prefKey = "selectedClass";
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey(PrefsKey))
+        if (PlayerPrefs.HasKey(prefKey))
         {
-            SelectedClass = (CharacterClass)PlayerPrefs.GetInt(PrefsKey);
+            selectedClass = (CharacterClass)PlayerPrefs.GetInt(prefKey);
 
-            switch (SelectedClass)
+            switch (selectedClass)
             {
                 case CharacterClass.Warrior:
-                    WarriorToggle.isOn = true;
+                    warriorToggle.isOn = true;
                     break;
                 case CharacterClass.Hunter:
-                    HunterToggle.isOn = true;
+                    hunterToggle.isOn = true;
                     break;
                 case CharacterClass.Wizard:
-                    WizardToggle.isOn = true;
+                    wizardToggle.isOn = true;
                     break;
                 case CharacterClass.Alchemyst:
-                    AlchemystToggle.isOn = true;
+                    alchemystToggle.isOn = true;
                     break;
                 case CharacterClass.Priest:
-                    PriestToggle.isOn = true;
+                    priestToggle.isOn = true;
                     break;
                 default:
-                    WarriorToggle.isOn = true;
+                    warriorToggle.isOn = true;
                     break;
             }
         }
@@ -80,7 +80,7 @@ public class CharacterSelect : MonoBehaviour
 
     public void SelectClass(CharacterClass characterClass)
     {
-        SelectedClass = characterClass;
-        PlayerPrefs.SetInt(PrefsKey, (int)SelectedClass);
+        selectedClass = characterClass;
+        PlayerPrefs.SetInt(prefKey, (int)selectedClass);
     }
 }

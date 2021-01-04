@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviourPun
     public GameObject projectilePrefab;
     public LayerMask projectileLayer;
     
-    HealthPoints target; //odkaz na aktualni cil monstra
+    HealthPoints target;
     Animator animator;
     int attackTrigger;
     int angleFloat;
@@ -89,8 +89,10 @@ public class EnemyAttack : MonoBehaviourPun
 
 
     [PunRPC]
-    protected void SetAttackAnimatorTrigger(float angle)
+    protected void SetAttackAnimatorTrigger(float angle, PhotonMessageInfo info)
     {
+        // the photonView.RPC() call is the same as without the info parameter.
+        // the info.Sender is the player who called the RPC.
         animator.SetTrigger(attackTrigger);
         animator.SetFloat(angleFloat, angle);
     }
