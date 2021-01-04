@@ -22,8 +22,8 @@ public class HotBar : MonoBehaviour
 
     IEnumerator WaitForPlayerSpawn()
     {
-        yield return new WaitUntil(() => PlayerManager.localPlayer != null);
-        PlayerAttack player = PlayerManager.localPlayer.GetComponent<PlayerAttack>();
+        yield return new WaitUntil(() => PlayerManager.LocalPlayer != null);
+        PlayerAttack player = PlayerManager.LocalPlayer.GetComponent<PlayerAttack>();
 
         ability1.sprite = player.ability1.uiDisplay;
         ability2.sprite = player.ability2.uiDisplay;

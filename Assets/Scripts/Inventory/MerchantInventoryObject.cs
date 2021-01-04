@@ -15,7 +15,7 @@ public class MerchantInventoryObject : InventoryObject
                 Debug.Log("zaplat ");
                 if (item1.ItemObject != null 
                     && item2.ItemObject == null 
-                    && PlayerManager.localPlayer.wallet.AddCoins(-item1.ItemObject.price) )
+                    && PlayerManager.LocalPlayer.Wallet.AddCoins(-item1.ItemObject.price) )
                 {
                     InventorySlot temp = new InventorySlot(item2.item, item2.amount);
                     item2.UpdateSlot(item1.item, item1.amount);
@@ -28,7 +28,7 @@ public class MerchantInventoryObject : InventoryObject
                 Debug.Log("dostanes prachy ");
                 if (item1.ItemObject != null)
                 {
-                    PlayerManager.localPlayer.wallet.AddCoins(item1.ItemObject.price);
+                    PlayerManager.LocalPlayer.Wallet.AddCoins(item1.ItemObject.price);
                     item1.RemoveItem();
                 }
             }

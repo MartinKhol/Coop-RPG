@@ -86,7 +86,7 @@ namespace Inventory
                 if (item1.parent.inventory.type == InterfaceType.Merchant && item2.parent.inventory.type != InterfaceType.Merchant)
                 {
                   //  Debug.Log("zaplat ");
-                    if (item1.ItemObject != null && item2.ItemObject == null && PlayerManager.localPlayer.wallet.AddCoins(-item1.ItemObject.price))
+                    if (item1.ItemObject != null && item2.ItemObject == null && PlayerManager.LocalPlayer.Wallet.AddCoins(-item1.ItemObject.price))
                     {
                         item2.UpdateSlot(item1.item, item1.amount);
                     }
@@ -97,7 +97,7 @@ namespace Inventory
                   //  Debug.Log("dostanes prachy ");
                     if (item1.ItemObject != null)
                     {
-                        PlayerManager.localPlayer.wallet.AddCoins(item1.ItemObject.price / 3);
+                        PlayerManager.LocalPlayer.Wallet.AddCoins(item1.ItemObject.price / 3);
                         item1.RemoveItem();
                     }
                 }

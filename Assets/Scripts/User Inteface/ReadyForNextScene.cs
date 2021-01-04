@@ -54,7 +54,7 @@ public class ReadyForNextScene : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                var level = levelDatabase.GetLevel(PlayerManager.localPlayer.currentLevel);
+                var level = levelDatabase.GetLevel(PlayerManager.LocalPlayer.CurrentLevel);
 
                 Debug.LogFormat("Switching to next scene: {0}", level.SceneName);
                 PhotonNetwork.LoadLevel(level.SceneName);

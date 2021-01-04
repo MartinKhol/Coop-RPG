@@ -16,7 +16,7 @@ namespace Inventory
 
         IEnumerator WaitForPlayer()
         {
-            yield return new WaitUntil(()=> PlayerManager.localPlayer != null);
+            yield return new WaitUntil(()=> PlayerManager.LocalPlayer != null);
             yield return new WaitForSeconds(.3f);
             slotsOnInterface.UpdateSlotDisplay();
         }

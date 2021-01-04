@@ -61,7 +61,9 @@ public class EnemyMovement : MonoBehaviour
     public void ChangeDestination(Transform destination)
     {
         if (destination == null)
-            Debug.LogError("neexistuje destination");
+        {
+            Debug.LogWarning("neexistuje destination");
+        }
 
         OnDestinationChange(destination);
         Target = destination;

@@ -43,7 +43,7 @@ public class EnemyChasePlayer : MonoBehaviourPun
     IEnumerator SelectTarget()
     {
         //wait till local player loads in
-        yield return new WaitUntil(() => PlayerManager.localPlayer != null);
+        yield return new WaitUntil(() => PlayerManager.LocalPlayer != null);
         aggroTable = new Dictionary<Transform, int>();
 
 

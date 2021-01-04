@@ -2395,11 +2395,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183c8d77e00079a4da5cc7063862afa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warriorToggle: {fileID: 1501706836}
-  wizardToggle: {fileID: 101900086}
-  alchemystToggle: {fileID: 1808051493}
-  hunterToggle: {fileID: 707722672}
-  priestToggle: {fileID: 1163142040}
+  WarriorToggle: {fileID: 1501706836}
+  WizardToggle: {fileID: 101900086}
+  AlchemystToggle: {fileID: 1808051493}
+  HunterToggle: {fileID: 707722672}
+  PriestToggle: {fileID: 1163142040}
 --- !u!1 &1501706834
 GameObject:
   m_ObjectHideFlags: 0

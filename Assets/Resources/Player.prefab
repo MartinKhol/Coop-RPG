@@ -179,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 1346060510144247145}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02457e8ded889004f98c87c33391175b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -330,7 +330,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: attack
+  - Type: 9
+    SynchronizeType: 0
+    Name: damaged
+  - Type: 4
+    SynchronizeType: 1
+    Name: walk
+  - Type: 1
+    SynchronizeType: 0
+    Name: angle
+  - Type: 9
+    SynchronizeType: 0
+    Name: parry
+  - Type: 4
+    SynchronizeType: 0
+    Name: casting
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -348,10 +366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a79d75cdf67924cb5ff0fa6d112359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: ce9a1916d84c2414b8bf1ee1c3a7ae45, type: 2}
-  equipment: {fileID: 11400000, guid: 994e56de379fe9146a0d7630dda919a7, type: 2}
-  playerClass: 0
-  attributes:
+  PlayerInventory: {fileID: 11400000, guid: ce9a1916d84c2414b8bf1ee1c3a7ae45, type: 2}
+  PlayerEquipment: {fileID: 11400000, guid: 994e56de379fe9146a0d7630dda919a7, type: 2}
+  PlayerClass: 0
+  Attributes:
   - type: 0
     value:
       baseValue: 0
@@ -372,8 +390,9 @@ MonoBehaviour:
     value:
       baseValue: 0
       modifiedValue: 0
-  currentLevel: 0
+  CurrentLevel: 0
   HealthPoints: {fileID: 0}
+  TempAnimator: {fileID: 0}
 --- !u!120 &6754919155937156288
 LineRenderer:
   m_ObjectHideFlags: 0

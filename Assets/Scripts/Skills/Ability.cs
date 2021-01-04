@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ability", menuName = "Ability")]
 public class Ability : ScriptableObject
 {
-    public static bool abilityInUse;
+    public static bool AbilityInUse;
     public GameObject effectorPrefab;
     public Sprite uiDisplay;
     [Space]
@@ -58,8 +58,8 @@ public class Ability : ScriptableObject
             obj.transform.up = direction;
         }
         var effector = obj.GetComponent<AbilityEffector>();
-        effector.ability = this;
-        effector.StartSkill((int)(PlayerManager.localPlayer.GetAttributeValue(damageStat) * damageMult));
+        effector.Ability = this;
+        effector.StartSkill((int)(PlayerManager.LocalPlayer.GetAttributeValue(damageStat) * damageMult));
         if (StartCooldown != null)
         {
             StartCooldown.Invoke(cooldown);
@@ -67,7 +67,7 @@ public class Ability : ScriptableObject
 
         if (channeled)
         {
-            abilityInUse = true;
+            AbilityInUse = true;
         }
 
         return true;
