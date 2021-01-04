@@ -9,9 +9,11 @@ public class HealthPoints : MonoBehaviourPun
 {
     public event Action OnDeath = delegate { };
     public event Action<int> OnHPChange = delegate { }; //posila pocet zivotu
+    
     public event Action<Transform, int> OnThreat = delegate { };
 
-    public bool disableOnDeath = true;
+    [SerializeField]
+    private bool disableOnDeath = true;
 
     [SerializeField]
     private int healthPoints = 10;
@@ -21,17 +23,20 @@ public class HealthPoints : MonoBehaviourPun
     public int HP
     {
         get => healthPoints;
-        private set
+      /*  private set
         {
             int previousVal = healthPoints;
 
+            //nastaveni nove hodnoty zivotu
             healthPoints = value;
 
-            if (previousVal != healthPoints) //took damage
+            //doslo ke zmene hodnoty
+            if (previousVal != healthPoints) 
             {
                 OnHPChange(healthPoints);
             }
 
+            //zivoty klesly pod 1
             if (healthPoints < 1)
             {
                 healthPoints = 0;
@@ -43,31 +48,31 @@ public class HealthPoints : MonoBehaviourPun
                 }
             }
 
+            //zivoty presahly povolene maximum
             if (healthPoints > maxHP)
                 healthPoints = maxHP;
 
+            //zivoty klesly
             if (previousVal > healthPoints)
             {
                 DamageAnimation();
             }
 
-         //   Debug.Log(string.Concat(name, " health points at: ", healthPoints));
-
-        }
+        }*/
     }
 
-    Animator animator;
-    int damageTrig;
-    PlayerManager playerManager;
+    public bool IsDead { get { return healthPoints < 1; } }
 
-    private void Awake()
+    Animator animator; //odkaz na animator postavy pro prehrani animace pri poklesu zivotu
+    readonly int damageTrig = Animator.StringToHash("damaged"); //hash parametru animatoru
+    PlayerManager playerManager; // odkaz na hrace pro pocitani s armorem
+
+   
+    private void Awake()  //inicializace
     {
         animator = GetComponent<Animator>();
-        damageTrig = Animator.StringToHash("damaged");
-
-        maxHP = HP;
-
         playerManager = GetComponent<PlayerManager>();
+        maxHP = HP;
     }
 
     private void DamageAnimation()
@@ -76,18 +81,27 @@ public class HealthPoints : MonoBehaviourPun
             animator.SetTrigger(damageTrig);
     }
 
-    public void Damage(int amount, Transform playerID = null, int additionalThreat = 0)
+    public void Damage(int amount, Transform attackingPlayer = null, int additionalThreat = 0)
     {
+        if (!PhotonNetwork.IsMasterClient) // veskere vypocty zivotu probihaji pouze na master clientu aby se predeslo chybam
+        {            
+            return;
+        }
+
+        //odecti hodnotu armoru hrace
         if (playerManager != null && amount > 0)
         {
             var armorVal = playerManager.GetAttributeValue(Attributes.Armor);
             amount = Mathf.Max(amount - armorVal, 1);
-
         }
 
-        HP -= amount;
+        //HP -= amount;
 
-        photonView.RPC("ChangeHealth", RpcTarget.Others, HP);
+        photonView.RPC("ChangeHealth", RpcTarget.All, HP - amount);
+
+        // threat change
+        if (attackingPlayer != null)
+            OnThreat(attackingPlayer, additionalThreat);
     }
 
     public void ChangeMaxHP(int newValue)
@@ -100,42 +114,31 @@ public class HealthPoints : MonoBehaviourPun
     {
         var change = newValue - maxHP;
         maxHP = newValue;
-        if (change > 0) HP += change;
-        else
-        if (HP > maxHP) HP = maxHP;
-
-       // Debug.Log(name + " maxHp set to " + maxHP);
+        if (change > 0)
+            photonView.RPC("ChangeHealth", RpcTarget.All, HP + change);
+        else if (HP > maxHP) 
+            photonView.RPC("ChangeHealth", RpcTarget.All, maxHP);
     }
 
     [PunRPC]
-    void ChangeHealth(int newValue, PhotonMessageInfo info)
+    void ChangeHealth(int newValue)
     {
         int previousVal = healthPoints;
+        
+        healthPoints = Mathf.Clamp(newValue, 0, maxHP);
 
-        healthPoints = newValue;
-
-        if (previousVal != healthPoints) //took damage
+        if (healthPoints < 1) //character is dead
         {
-            OnHPChange(healthPoints);
-        }
-
-        if (healthPoints < 1)
-        {
-            healthPoints = 0;
-            Debug.Log(name + " is dead");
             OnDeath();
             if (disableOnDeath)
-            {
                 gameObject.SetActive(false);
-            }
         }
-        else if (healthPoints > maxHP)
-            healthPoints = maxHP;
-
-        if (previousVal > healthPoints)
-        {
+        
+        if (previousVal > healthPoints) //character got damaged - play animation
             DamageAnimation();
-        }
+
+        if (previousVal != healthPoints) //send hp change event
+            OnHPChange(healthPoints);
     }
 
     public void ReviveRpc()
@@ -146,9 +149,9 @@ public class HealthPoints : MonoBehaviourPun
     [PunRPC]
     void Revive()
     {
-        Debug.Log(string.Concat("Revived ", name));
         gameObject.SetActive(true);
         healthPoints = maxHP;
-        OnHPChange(healthPoints);
+
+        OnHPChange(healthPoints); //updatne healthbar
     }
 }

@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviourPun
 
     private void Start()
     {
-        playerManager = PlayerManager.localPlayer;
+        playerManager = PlayerManager.LocalPlayer;
     }
 
     private void Update()
@@ -79,7 +79,7 @@ public class PlayerAttack : MonoBehaviourPun
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (!Ability.abilityInUse)
+            if (!Ability.AbilityInUse)
             {
                 if (Input.GetKey(Settings.attackKey))
                 {
@@ -182,29 +182,34 @@ public class PlayerAttack : MonoBehaviourPun
         switch (playerManager.WeaponType)
         {
             case Inventory.ItemType.Sword:
-                MeleeAttack(direction);
+                photonView.RPC("MeleeAttack", RpcTarget.MasterClient, direction, PhysicalDamage);
+               // MeleeAttack(direction);
                 break;
             case Inventory.ItemType.Staff:
                 SpawnStaffProjectile(direction, MagicalDamage);
-                photonView.RPC("SpawnStaffProjectile", RpcTarget.Others, direction, 0);
+                photonView.RPC("SpawnStaffProjectile", RpcTarget.Others, direction, MagicalDamage);
                 break;
             case Inventory.ItemType.Bow:
                 SpawnBowProjectile(direction, PhysicalDamage);
-                photonView.RPC("SpawnBowProjectile", RpcTarget.Others, direction, 0);
+                photonView.RPC("SpawnBowProjectile", RpcTarget.Others, direction, PhysicalDamage);
                 break;
             case Inventory.ItemType.Dagger:
-                MeleeAttack(direction);
+                photonView.RPC("MeleeAttack", RpcTarget.MasterClient, direction, PhysicalDamage);        
                 break;
             case Inventory.ItemType.Ankh:
                 SpawnAnkhProjectile(direction, MagicalDamage);
-                photonView.RPC("SpawnAnkhProjectile", RpcTarget.Others, direction, 0);
+                photonView.RPC("SpawnAnkhProjectile", RpcTarget.Others, direction, MagicalDamage);
                 break;
             default:
                 break;
         }
     }
 
-    private void MeleeAttack(Vector2 direction)
+
+    #region RPC Calls
+
+    [PunRPC]
+    private void MeleeAttack(Vector2 direction, int damage)
     {
         Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(attackPivot.position + (Vector3)direction * (distance + 0.3f), radius, layerMask);
 
@@ -213,13 +218,10 @@ public class PlayerAttack : MonoBehaviourPun
             HealthPoints healthPoints = col.GetComponent<HealthPoints>();
             if (healthPoints != null)
             {
-                healthPoints.Damage(PhysicalDamage, gameObject.transform, 0);
+                healthPoints.Damage(damage, gameObject.transform, 0);
             }
         }
     }
-
-
-    #region RPC Calls
 
     [PunRPC]
     private void ParryAnimation()
@@ -287,14 +289,11 @@ public class PlayerAttack : MonoBehaviourPun
     }
 
     [PunRPC]
-    protected void SetAttackAnimatorTrigger(float angle, PhotonMessageInfo info)
+    protected void SetAttackAnimatorTrigger(float angle)
     {
-        // the photonView.RPC() call is the same as without the info parameter.
-        // the info.Sender is the player who called the RPC.
         animator.SetTrigger(attackTrigger);
         animator.SetFloat(angleFloat, angle);
     }
-
 
     [PunRPC]
     public void SpawnEffect(int ability, Vector2 position, Vector2 direction)

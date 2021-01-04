@@ -26,7 +26,7 @@ public class Wallet
         return true;
     }
 
-    const string prefsKey = "coins";
+    const string PrefsKey = "coins";
 
     public Wallet()
     {
@@ -35,14 +35,14 @@ public class Wallet
 
     public void Save()
     {
-        PlayerPrefs.SetInt(string.Concat(prefsKey, CharacterSelect.selectedClass), Coins);
+        PlayerPrefs.SetInt(string.Concat(PrefsKey, CharacterSelect.SelectedClass), Coins);
     }
 
     public void Load()
     {
-        if (PlayerPrefs.HasKey(string.Concat(prefsKey, CharacterSelect.selectedClass)))
+        if (PlayerPrefs.HasKey(string.Concat(PrefsKey, CharacterSelect.SelectedClass)))
         {
-            Coins = PlayerPrefs.GetInt(string.Concat(prefsKey, CharacterSelect.selectedClass));
+            Coins = PlayerPrefs.GetInt(string.Concat(PrefsKey, CharacterSelect.SelectedClass));
         }
     }
 }

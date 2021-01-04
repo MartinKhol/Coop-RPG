@@ -8,29 +8,31 @@ using Inventory;
 
 public class PlayerManager : MonoBehaviourPun
 {
-    public Wallet wallet;
-    public InventoryObject inventory;
-    public InventoryObject equipment;
-    public CharacterClass playerClass;
-    public Attribute[] attributes;
+    public Wallet Wallet;
+    public InventoryObject PlayerInventory;
+    public InventoryObject PlayerEquipment;
+    public CharacterClass PlayerClass;
+    public Attribute[] Attributes;
+
     private RuntimeAnimatorController animatorController;
 
-    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
-    public static PlayerManager localPlayer;
-    public int currentLevel = 0;
+    public static PlayerManager LocalPlayer;
+
+    public int CurrentLevel = 0;  // aktualni level hry
     [HideInInspector]
     public HealthPoints HealthPoints;
 
     private Animator animator;
-   // public RuntimeAnimatorController tempAnimator;
+
+    public RuntimeAnimatorController TempAnimator; //pouziva se k vynuceni aktualizace animatoru, prohozonim s docasnym a zase zpet
 
     private void Awake()
     {
         if (photonView.IsMine)
         {
-            localPlayer = this;
+            LocalPlayer = this;
         }
-        // we flag as don't destroy on load so that instance survives level synchronization, thus giving a seamless experience when levels load.
+        // tento objekt bude prenesen mezi scenami
         DontDestroyOnLoad(this.gameObject);
 
         HealthPoints = GetComponent<HealthPoints>();
@@ -38,7 +40,7 @@ public class PlayerManager : MonoBehaviourPun
 
         animator = GetComponent<Animator>();
 
-        wallet = new Wallet();
+        Wallet = new Wallet();
 
         if (photonView.IsMine)
         {
@@ -53,9 +55,9 @@ public class PlayerManager : MonoBehaviourPun
 
     private void Start()
     {
-        //       animator.runtimeAnimatorController = tempAnimator;
+        animator.runtimeAnimatorController = TempAnimator;
         gameObject.SetActive(false);
-        Invoke("SetAnimator", 0.05f);
+        Invoke("SetAnimator", 0.2f);
     }
 
     private void SetAnimator()
@@ -66,48 +68,48 @@ public class PlayerManager : MonoBehaviourPun
 
     private void InitAtributes()
     {
-        for (int i = 0; i < attributes.Length; i++)
+        for (int i = 0; i < Attributes.Length; i++)
         {
-            attributes[i].SetParent(this);
+            Attributes[i].SetParent(this);
         }
-        for (int i = 0; i < equipment.GetSlots.Length; i++)
+        for (int i = 0; i < PlayerEquipment.GetSlots.Length; i++)
         {
-            equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
-            equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
+            PlayerEquipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
+            PlayerEquipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
         }
-        equipment.GetSlots[0].OnBeforeUpdate += SetWeapon;
-        equipment.GetSlots[0].OnAfterUpdate += SetWeapon;
-        equipment.GetSlots[0].OnBeforeUpdate += CallSetWeaponRPC;
-        equipment.GetSlots[0].OnAfterUpdate += CallSetWeaponRPC;
+        PlayerEquipment.GetSlots[0].OnBeforeUpdate += SetWeapon;
+        PlayerEquipment.GetSlots[0].OnAfterUpdate += SetWeapon;
+        PlayerEquipment.GetSlots[0].OnBeforeUpdate += CallSetWeaponRPC;
+        PlayerEquipment.GetSlots[0].OnAfterUpdate += CallSetWeaponRPC;
     }
 
     private void OnDestroy()
     {
         HealthPoints.OnDeath -= CheckForGameOver;
 
-        for (int i = 0; i < equipment.GetSlots.Length; i++)
+        for (int i = 0; i < PlayerEquipment.GetSlots.Length; i++)
         {
-            equipment.GetSlots[i].OnBeforeUpdate -= OnBeforeSlotUpdate;
-            equipment.GetSlots[i].OnAfterUpdate -= OnAfterSlotUpdate;
+            PlayerEquipment.GetSlots[i].OnBeforeUpdate -= OnBeforeSlotUpdate;
+            PlayerEquipment.GetSlots[i].OnAfterUpdate -= OnAfterSlotUpdate;
         }
-        equipment.GetSlots[0].OnBeforeUpdate -= SetWeapon;
-        equipment.GetSlots[0].OnAfterUpdate -= SetWeapon;
-        equipment.GetSlots[0].OnBeforeUpdate -= CallSetWeaponRPC;
-        equipment.GetSlots[0].OnAfterUpdate -= CallSetWeaponRPC;
+        PlayerEquipment.GetSlots[0].OnBeforeUpdate -= SetWeapon;
+        PlayerEquipment.GetSlots[0].OnAfterUpdate -= SetWeapon;
+        PlayerEquipment.GetSlots[0].OnBeforeUpdate -= CallSetWeaponRPC;
+        PlayerEquipment.GetSlots[0].OnAfterUpdate -= CallSetWeaponRPC;
     }
 
     public void SetPlayerClassAndVisual()
     {
         if (photonView.IsMine)
-            playerClass = CharacterSelect.selectedClass;
+            PlayerClass = CharacterSelect.SelectedClass;
         else
         {
-            playerClass = (CharacterClass)photonView.InstantiationData[0];
-            print(string.Concat("Networked player instatiated with class: ", playerClass));
+            PlayerClass = (CharacterClass)photonView.InstantiationData[0];
+            print(string.Concat("Networked player instatiated with class: ", PlayerClass));
         }
 
         var classObject = GameManager.Instance.WarriorObject;
-        switch (playerClass)
+        switch (PlayerClass)
         {
             case CharacterClass.Warrior:
                 classObject = GameManager.Instance.WarriorObject;
@@ -138,11 +140,11 @@ public class PlayerManager : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-            equipment.Container.Slots[0].SetAllowedItems(classObject.weaponTypes);
+            PlayerEquipment.Container.Slots[0].SetAllowedItems(classObject.weaponTypes);
 
             foreach (var baseAttribute in classObject.baseAttributes)
             {
-                foreach (var charAttribute in attributes)
+                foreach (var charAttribute in Attributes)
                 {
                     if (baseAttribute.type == charAttribute.type)
                     {
@@ -153,14 +155,14 @@ public class PlayerManager : MonoBehaviourPun
             }
 
             //nastaveni equipu
-            foreach (var item in equipment.GetSlots)
+            foreach (var item in PlayerEquipment.GetSlots)
             {
                 if (item.ItemObject != null)
                     item.UpdateSlot(item.item, 1);
             }
 
-            if (equipment.GetSlots[0].ItemObject == null)
-                equipment.GetSlots[0].UpdateSlot(new Item(classObject.defaultWeapon), 1);
+            if (PlayerEquipment.GetSlots[0].ItemObject == null)
+                PlayerEquipment.GetSlots[0].UpdateSlot(new Item(classObject.defaultWeapon), 1);
 
         }
         var attackObj = GetComponent<PlayerAttack>();
@@ -177,13 +179,12 @@ public class PlayerManager : MonoBehaviourPun
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-           //     print(string.Concat("Removed ", slot.ItemObject, " on", slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", slot.AllowedItems)));
                 for (int i = 0; i < slot.item.buffs.Length; i++)
                 {
-                    for (int j = 0; j < attributes.Length; j++)
+                    for (int j = 0; j < Attributes.Length; j++)
                     {
-                        if (attributes[j].type == slot.item.buffs[i].attribute)
-                            attributes[j].value.RemoveModifier(slot.item.buffs[i]);
+                        if (Attributes[j].type == slot.item.buffs[i].attribute)
+                            Attributes[j].value.RemoveModifier(slot.item.buffs[i]);
                     }
                 }
                 break;
@@ -203,14 +204,12 @@ public class PlayerManager : MonoBehaviourPun
             case InterfaceType.Inventory:
                 break;
             case InterfaceType.Equipment:
-           //     print(string.Concat("Placed ", slot.ItemObject, " on", slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", slot.AllowedItems)));
-
                 for (int i = 0; i < slot.item.buffs.Length; i++)
                 {
-                    for (int j = 0; j < attributes.Length; j++)
+                    for (int j = 0; j < Attributes.Length; j++)
                     {
-                        if (attributes[j].type == slot.item.buffs[i].attribute)
-                            attributes[j].value.AddModifier(slot.item.buffs[i]);
+                        if (Attributes[j].type == slot.item.buffs[i].attribute)
+                            Attributes[j].value.AddModifier(slot.item.buffs[i]);
                     }
                 }
                 break;
@@ -272,7 +271,7 @@ public class PlayerManager : MonoBehaviourPun
         }
         else
         {
-            var itemObject = equipment.database.ItemObjects[id];
+            var itemObject = PlayerEquipment.database.ItemObjects[id];
 
             weaponRenderer.sprite = itemObject.uiDisplay;
             WeaponEquiped = true;
@@ -293,14 +292,18 @@ public class PlayerManager : MonoBehaviourPun
 
     void CheckForGameOver()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (!PhotonNetwork.InRoom) return; //pokud jiz nejsi v mistnosti nema smysl to kontrolovat
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); //je alespon jeden hrac na zivu?
         foreach (var player in players)
         {
             if (player.activeInHierarchy)
-                return;
+                return; //pokud je nekdo nazivu vrat se
         }
-        Debug.Log("Game Over, everyone is dead.");
-        GameManager.Instance.LeaveRoom();
+
+        // --GAME OVER--
+        
+        GameManager.Instance.LeaveRoom(); // vsichni hraci umreli, opust server
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -314,12 +317,12 @@ public class PlayerManager : MonoBehaviourPun
             {
                 if (drop.generatedItem != null)
                 {
-                    if (inventory.AddItem(drop.generatedItem, 1))
+                    if (PlayerInventory.AddItem(drop.generatedItem, 1))
                         Destroy(collision.gameObject);
                 }
                 else
                 {
-                    if (inventory.AddItem(drop.Item.CreateItem(), 1))
+                    if (PlayerInventory.AddItem(drop.Item.CreateItem(), 1))
                         Destroy(collision.gameObject);
                 }
             }
@@ -340,9 +343,7 @@ public class PlayerManager : MonoBehaviourPun
 
     public void AttribureModified(Attribute attribute)
     {
-     //   Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
-
-        if (attribute.type == Attributes.Health)
+        if (attribute.type == global::Attributes.Health)
         {
             HealthPoints.ChangeMaxHP(attribute.value.ModifiedValue);
         }
@@ -352,32 +353,32 @@ public class PlayerManager : MonoBehaviourPun
 
     public int GetAttributeValue(Attributes attribute)
     {
-        for (int j = 0; j < attributes.Length; j++)
+        for (int j = 0; j < Attributes.Length; j++)
         {
-            if (attributes[j].type == attribute)
-                return attributes[j].value.ModifiedValue;
+            if (Attributes[j].type == attribute)
+                return Attributes[j].value.ModifiedValue;
         }
         return 0;
     }
 
     public void AddAtributeModifier(Attributes attribute, IModifier modifier)
     {
-        for (int j = 0; j < attributes.Length; j++)
+        for (int j = 0; j < Attributes.Length; j++)
         {
-            if (attributes[j].type == attribute)
+            if (Attributes[j].type == attribute)
             {
-                attributes[j].value.AddModifier(modifier);
+                Attributes[j].value.AddModifier(modifier);
                 return;
             }
         }
     }
     public void RemoveAtributeModifier(Attributes attribute, IModifier modifier)
     {
-        for (int j = 0; j < attributes.Length; j++)
+        for (int j = 0; j < Attributes.Length; j++)
         {
-            if (attributes[j].type == attribute)
+            if (Attributes[j].type == attribute)
             {
-                attributes[j].value.RemoveModifier(modifier);
+                Attributes[j].value.RemoveModifier(modifier);
                 return;
             }
         }

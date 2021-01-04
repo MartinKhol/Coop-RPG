@@ -7,7 +7,7 @@ public static class AppSettingsExtensions
     {
         return new ChatAppSettings
         {
-            AppId = appSettings.AppIdChat,
+            AppIdChat = appSettings.AppIdChat,
             AppVersion = appSettings.AppVersion,
             FixedRegion = appSettings.IsBestRegion ? null : appSettings.FixedRegion,
             NetworkLogging = appSettings.NetworkLogging,

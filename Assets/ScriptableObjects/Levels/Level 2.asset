@@ -25,4 +25,10 @@ MonoBehaviour:
       count: 3
     - mob: OrcClub
       count: 2
+    delay: 10
+  - mobs:
+    - mob: Wombat
+      count: 3
+    - mob: OrcClub
+      count: 2
     delay: 0

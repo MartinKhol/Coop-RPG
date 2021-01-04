@@ -10,6 +10,7 @@ public class FloatingHPBarUI : MonoBehaviour
     public Vector3 offset;
     public string chracterName;
     public Text nameText;
+    public Text hpValueText;
     private GameObject healthBar;
 
     void Start()
@@ -28,12 +29,17 @@ public class FloatingHPBarUI : MonoBehaviour
         {
             nameText.text = chracterName;
         }
+
+
+        UpdateHPBar(healthPoints.HP);
     }
 
     void UpdateHPBar(int hp)
     {
         healthImage.fillAmount = (float)hp / (float)healthPoints.maxHP;
         healthBar.SetActive(hp < healthPoints.maxHP);
+
+        hpValueText.text = string.Concat(hp, "/", healthPoints.maxHP);
     }
 
     Vector3 scale = new Vector3(0.01f, 0.01f, 0.01f);

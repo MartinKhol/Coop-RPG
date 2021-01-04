@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     private void FixedUpdate()
     {
-        if (photonView.IsMine && !Ability.abilityInUse)
+        if (photonView.IsMine && !Ability.AbilityInUse)
         {
             if (moved = (movement != Vector2.zero))
             {
