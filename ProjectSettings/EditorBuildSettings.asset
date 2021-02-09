@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Purple Forest.unity
     guid: 61e77c493d0f7204d85c5afb93206338
+  - enabled: 1
+    path: Assets/Scenes/Cemetery.unity
+    guid: bc9238bf26f563b4198de8972f44dca6
   m_configObjects: {}
